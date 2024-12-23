@@ -25,6 +25,8 @@ User = get_user_model()
 
 # Create your views here.
 class SignUp(APIView):
+    authentication_classes = []
+    permission_classes = []
     def post(self, request):
         try: 
             payload = request.data
@@ -38,6 +40,8 @@ class SignUp(APIView):
             print(traceback.format_exc())
             return internal_server_error(message=error_message)
 class Login(APIView):
+    authentication_classes = []
+    permission_classes = []
     def post(self, request):
         try:
             username = request.data.get('username')
